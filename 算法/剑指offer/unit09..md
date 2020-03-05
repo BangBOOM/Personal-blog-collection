@@ -89,3 +89,197 @@ class Solution:
                 que.extend([tmp.left,tmp.right])
         return res
 ```
+
+## 面试题32 - II. 从上到下打印二叉树 II
+
+从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
+```
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+返回其层次遍历结果：
+
+[
+  [3],
+  [9,20],
+  [15,7]
+]
+```
+[LeetCode](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof)
+
+### 思路
+
+直接全部打印不需要记录每层的信息，分层打印需要记录每层都有多少个，或者每次两个队列交替。
+
+### 代码
+```
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        tmp=[root]
+        res=[]
+        while tmp:
+            res.append([])
+            for _ in range(len(tmp)):
+                item=tmp.pop(0)
+                if item:
+                    res[-1].append(item.val)
+                    tmp.extend([item.left,item.right])
+        res.pop()
+        return res
+```
+
+## 面试题32 - III. 从上到下打印二叉树 III
+
+请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+```
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+返回其层次遍历结果：
+
+[
+  [3],
+  [20,9],
+  [15,7]
+]
+```
+[LeetCode](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof)
+
+### 思路
+
+和分层打印一样，只是将特定层得到的结果倒序输出即可
+
+### 代码
+
+```
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        
+        direction=False
+        tmp=[root]
+        res=[]
+        while tmp:
+            res.append([])
+            for _ in range(len(tmp)):
+                item=tmp.pop(0)
+                if item:
+                    res[-1].append(item.val)
+                    tmp.extend([item.left,item.right])
+            if direction:
+                res[-1]=res[-1][::-1]
+            direction=not direction
+        res.pop()
+        return res
+```
+
+## 面试题33. 二叉搜索树的后序遍历序列
+
+输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互不相同。
+```
+参考以下这颗二叉搜索树：
+
+     5
+    / \
+   2   6
+  / \
+ 1   3
+示例 1：
+
+输入: [1,6,3,2,5]
+输出: false
+示例 2：
+
+输入: [1,3,2,6,5]
+输出: true
+```
+
+[LeetCode](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof)
+
+### 思路
+
+根据后续遍历的特点，最后一个点一定是根节点，并且根节点前的数字一定是前一部分小于根节点后一部分大于根节点，我们用递归的形式不断划分
+
+比如
+```
+[1,6,3,2,5]
+[1] [6,3,2] 5  find 3<5 so return False
+
+[1,3,4,6,5]
+[1,3,4] [6]
+[1] [3] True 
+True True True
+```
+
+### 代码
+```
+class Solution:
+    def verifyPostorder(self, postorder: List[int]) -> bool:
+        if len(postorder)==1 or not postorder:
+            return True
+        left=[]
+        right=[]
+        for item in postorder[:-2]:
+            if item < postorder[-1]:
+                if right:
+                    return False
+                left.append(item)
+            else:
+                right.append(item)
+        return self.verifyPostorder(left) and self.verifyPostorder(right)
+```
+
+
+## 面试题34. 二叉树中和为某一值的路径
+
+输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。
+
+```
+示例:
+给定如下二叉树，以及目标和 sum = 22，
+
+              5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \    / \
+        7    2  5   1
+返回:
+
+[
+   [5,4,11,2],
+   [5,8,4,5]
+]
+```
+[LeetCode](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof)s
+
+### 思路
+深度优先遍历
+
+### 代码
+```
+class Solution:
+    def pathSum(self, root: TreeNode, sums: int) -> List[List[int]]:
+        res_x=[]
+        def dfs(res,root):
+            res.append(root.val)
+            if sum(res)==sums and not root.left and not root.right:
+                res_x.append(res)
+            if root.left:
+                dfs(res.copy(),root.left)
+            if root.right:
+                dfs(res.copy(),root.right)
+        if root:
+            dfs([],root)
+        return res_x
+```
