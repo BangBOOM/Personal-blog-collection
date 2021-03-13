@@ -2,9 +2,9 @@
 
 **前提已经写好了一个可用的django网站，这部分就不赘述了**
 
-### 这是我的的django项目目录PersonalBlog(后面见到的PersonalBlog自行替换成自己的)
+这是我的的django项目目录PersonalBlog(后面见到的PersonalBlog自行替换成自己的)
 
-```
+```tex
 $ tree -d PersonalBlog
 PersonalBlog
 |-- PersonalBlog
@@ -27,7 +27,7 @@ PersonalBlog
 ### 安装Uwsgi，并且测试
 + `pip install uwsgi`
 + 运行一个demo测试一下，新建一个test.py文件，能成功就进行下一步。
-```
+```tex
 #文件内容只要这个函数就可以了不用考虑别的
 def application(env, start_response):
     start_response('200 OK', [('Content-Type','text/html')])
@@ -49,7 +49,7 @@ uwsgi --http :9090 --wsgi-file test.py
 + 安装nginx `yum install nginx`
 + 然后输入 `nginx` 直接再浏览器输入ip应该可以看到相应页面
 + nginx的主要作用就是访问你的静态文件，django中每个app有对应的static静态文件，而nginx只能笼统的访问一个这就需要将django中的所有static文件收集起来。
-```
+```tex
 #在setting.py文件中加入这么一行
 STATIC_ROOT="/home/blog/static/" #位置可以随意，这里假设这个位置方便后面
 #接着运行下面的命令
@@ -57,7 +57,7 @@ python manage.py collectstatic
 ```
 + 然后修改 `/etc/nginx/nginx.conf` 文件,修改这个文件的目的有三个主要目的，一个是告诉nginx static文件的位置在哪里，一个是设置监听端口一般是80，还有和uwsgi通信的socket接口。
 + 在这之前我们通过uwsgi直接登陆网站跳过了socket这一步，这里将使用uwsgi的命令修改写成文件方便后续使用
-```
+```tex
 #这个文件命名为xxx.ini,位置可以随便放
 [uwsgi]
 socket= 127.0.0.1:8000   #内部通信的端口
@@ -72,7 +72,7 @@ harakiri=20
 ```
 + 使用`uwsgi --ini xxx.ini`这个命令就相当于第三步不同的是这里只用在本机上使用127.0.0.1：8000访问而没法从浏览器访问
 + 配置完了uwsgi，接着来配置 `/etc/nginx/nginx.conf`
-```
+```tex
 //然后只需要修改server部分，我这里就只把server部分的内容放出来,此外把最上面改成user root;
 server {
     listen       80;    //这是给浏览器访问用的
@@ -114,13 +114,16 @@ server {
 
 **其实最后就是一个`xxx.ini`文件配置uwsgi怎么启动django，修改`\etc\nginx\nginx.conf`文配置nginx**
 
-```
+```tex
 #以我的这个为例子整个流程图
 web <IP:80> nginx <-> socket <127.0.0.1:8001> uwsgi <-> django
 ```
 
 ---
-### 参考内容(官方文档永远是最好的教程)
+### 参考内容
+
+> 官方文档永远是最好的教程
+
 + [uwsgi document](https://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/WSGIquickstart.html)
 + [How to use Django with uWSGI](https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/uwsgi/)
 + [静态文件问题csdn](https://blog.csdn.net/qq_42571805/article/details/80862455)

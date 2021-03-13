@@ -3,7 +3,7 @@
 > 这里只放上实现的代码，原理我也不太明白，适合不了解js的人
 ## 动态加载页面
 + demo.html文件里的修改
-```
+```php+HTML
 <script>
          $(document).ready(function () {
              $('#u109').click(function () {
@@ -21,7 +21,7 @@
 <textarea id="tgt_out" readonly='readonly'></textarea>
 ```
 + views.py 和 urls.py 中的应内容
-```
+```python
 #views.py
 def get_res(request):
     src = request.GET['src']
@@ -40,7 +40,7 @@ urlpatterns=[path('demo.html',views.index_1,name="demo"),
 ---
 ## POST方法重载整个页面
 + demo.html
-```
+```php+HTML
 <form action="{% url 'appname:url_name' %}" method="POST">{% csrf_token %}
 {% csrf_token %}
 <textarea id="code" name="code">{{ res }}</textarea>
@@ -49,7 +49,7 @@ urlpatterns=[path('demo.html',views.index_1,name="demo"),
 </form>
 ```
 + views.py 和 urls.py
-```
+```python
 def demo(request):
     if request.method=="GET":
         return render(request,'demo.html')

@@ -7,7 +7,7 @@
 ![](https://user-images.githubusercontent.com/36192496/75672007-c4951b00-5cba-11ea-9c4b-44e60f55e601.png)
 
 ## 预先准备
-```
+```python
 import queue,collections
 
 graph={
@@ -25,7 +25,7 @@ graph={
 
 可以结合树的层序遍历，图其实也是一次性将当前节点相连且未访问的点放入队列，当前节点则是每次从队列出来的点
 
-```
+```python
 
 
 def BFS(graph,s):
@@ -51,7 +51,7 @@ def BFS(graph,s):
 
 将栈顶节点的相邻节点放入栈中
 
-```
+```python
 def DFS(graph,s):
     '''
     Stack
@@ -81,7 +81,7 @@ def DFS(graph,s):
 
 每次从队列弹出的点若之前没出现过则其距离s的距离就是所有距离中最短的
 
-```
+```python
 
 graph_x={
     "A":{"B":5,"C":1},
@@ -112,7 +112,7 @@ def dijkstra(graph,s):
 
 ```
 
-```
+```python
 
 if __name__=="__main__":
     BFS(graph,"A")

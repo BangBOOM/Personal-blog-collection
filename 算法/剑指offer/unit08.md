@@ -2,7 +2,7 @@
 
 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。
 
-```
+```tex
 示例:
 
 MinStack minStack = new MinStack();
@@ -25,13 +25,13 @@ minStack.min();   --> 返回 -2.
 
 当放入的数字大于等于最小栈栈顶的元素，则把最小栈顶元素的值复制一份，代表当前的最小值未被改变，若放入的数字小于最小栈栈顶的元素，则把这个数同时也放入最小栈中
 举个例子： 
-```
+```tex
 stack:      [-2, 0,-3, 4,-5]
 minstack:   [-2,-2,-3,-3,-5]
 ```
 
 ### 代码：
-```
+```python
 class MinStack(object):
 
     def __init__(self):
@@ -77,7 +77,7 @@ class MinStack(object):
 
 请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。
 
-```
+```tex
 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
 
     1
@@ -113,7 +113,7 @@ class MinStack(object):
 
 ### 代码
 
-```
+```python
 class Solution(object):
     def isSymmetric(self, root):
         """

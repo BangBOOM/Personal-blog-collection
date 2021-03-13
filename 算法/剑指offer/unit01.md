@@ -5,7 +5,7 @@
 ## 面试题03.数组中重复的数字
 在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
 
-```
+```tex
 输入：
 [2, 3, 1, 0, 2, 5, 3]
 输出：2 或 3 
@@ -19,7 +19,7 @@
 这种情况可能有人会选择list但是in运算在集合中的速度在元素数量巨大时是非常快的
 
 ### 代码
-```
+```python
 class Solution(object):
     def findRepeatNumber(self, nums):
         """
@@ -40,7 +40,7 @@ class Solution(object):
 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
 
 示例:现有矩阵 matrix 如下：
-```
+```tex
 [
   [1,   4,  7, 11, 15],
   [2,   5,  8, 12, 19],
@@ -63,7 +63,7 @@ class Solution(object):
 +  target < 18 则最下面一行可以删除
 
 ### 代码
-```
+```python
 class Solution(object):
     def findNumberIn2DArray(self, matrix, target):
         """
@@ -90,7 +90,7 @@ class Solution(object):
 请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
 
 示例 1：
-```
+```tex
 输入：s = "We are happy."
 输出："We%20are%20happy."
 ```
@@ -100,7 +100,7 @@ class Solution(object):
 python中字符串的处理方式非常多，在这里我选择先安装空格拆成字符串，再使用join的方法拼接，不过速度会比较慢,空间消耗比绩小
 
 ### 代码
-```
+```python
 class Solution(object):
     def replaceSpace(self, s):
         """
@@ -115,7 +115,7 @@ class Solution(object):
 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
 
 例如，给出
-```
+```tex
 前序遍历 preorder = [3,9,20,15,7]
 中序遍历 inorder = [9,3,15,20,7]
 返回如下的二叉树：
@@ -137,14 +137,14 @@ class Solution(object):
 以题目给出的示例：
 
 + 前序遍历中的3是根节点，所以把3从前序遍历的列表弹出后得到新的前序遍历列表[9,20,15,7]
-```
+```tex
   3
 ```
 
 + 中序遍历中3的左半部分是左子树，将这部分单独取出即：[9]
 
     + 前序遍历中的9是左子树部分的根节点，将9从前序遍历的列表弹出[20,15,7]
-```
+```tex
   3
  /
 9
@@ -155,7 +155,7 @@ class Solution(object):
     + 前序遍历中的20是右子树部分的根节点,将20从前序遍历的列表弹出[15,7]
     + 中序遍历中20的左半部分是左子树[15],15是前序遍历中的第一个，所以15是根节点，同时将15从前序遍历中弹出
     + 中序遍历中20的右半部分是右子树[7]，7是前序遍历中的第一个，所以7是根节点，同时将7从前序遍历中弹出
-```
+```tex
   3                     3                    3
  / \     --->          / \      --->        / \
 9  20                 9  20                9  20
@@ -164,7 +164,7 @@ class Solution(object):
 ```
 
 ### 代码
-```
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -189,8 +189,5 @@ class Solution(object):
         if inorder[index+1:]:
             root.right=self.buildTree(preorder,inorder[index+1:])
         return root
+    
 ```
-
-
-    
-    

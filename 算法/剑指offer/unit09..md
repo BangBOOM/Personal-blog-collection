@@ -2,8 +2,8 @@
 
 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈的压栈序列，序列 {4,5,3,2,1} 是该压栈序列对应的一个弹出序列，但 {4,3,5,1,2} 就不可能是该压栈序列的弹出序列。
 
- 
-```
+
+```tex
 示例 1：
 
 输入：pushed = [1,2,3,4,5], popped = [4,5,3,2,1]
@@ -27,7 +27,7 @@ push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
 `pushed`中的元素依次放入`tmp`中，同时检测`tmp`的最后一个元素是否与`popped`的第一个元素相同，若相同则从`tmp`中弹出同时`popped`的第一个元素也弹出。最后判断`tmp`与`popped`是否正好相反。
 
 ### 代码
-```
+```python
 class Solution(object):
     def validateStackSequences(self, pushed, popped):
         """
@@ -48,7 +48,7 @@ class Solution(object):
 
 从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
 
-```
+```tex
 例如:
 给定二叉树: [3,9,20,null,null,15,7],
 
@@ -69,7 +69,7 @@ class Solution(object):
 
 ### 代码
 
-```
+```python
 '''
 Definition for a binary tree node.
 class TreeNode:
@@ -93,7 +93,7 @@ class Solution:
 ## 面试题32 - II. 从上到下打印二叉树 II
 
 从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
-```
+```tex
 例如:
 给定二叉树: [3,9,20,null,null,15,7],
 
@@ -117,7 +117,7 @@ class Solution:
 直接全部打印不需要记录每层的信息，分层打印需要记录每层都有多少个，或者每次两个队列交替。
 
 ### 代码
-```
+```python
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         tmp=[root]
@@ -136,7 +136,7 @@ class Solution:
 ## 面试题32 - III. 从上到下打印二叉树 III
 
 请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
-```
+```tex
 例如:
 给定二叉树: [3,9,20,null,null,15,7],
 
@@ -161,7 +161,7 @@ class Solution:
 
 ### 代码
 
-```
+```python
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         
@@ -185,7 +185,7 @@ class Solution:
 ## 面试题33. 二叉搜索树的后序遍历序列
 
 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互不相同。
-```
+```tex
 参考以下这颗二叉搜索树：
 
      5
@@ -210,7 +210,7 @@ class Solution:
 根据后续遍历的特点，最后一个点一定是根节点，并且根节点前的数字一定是前一部分小于根节点后一部分大于根节点，我们用递归的形式不断划分
 
 比如
-```
+```tex
 [1,6,3,2,5]
 [1] [6,3,2] 5  find 3<5 so return False
 
@@ -221,7 +221,7 @@ True True True
 ```
 
 ### 代码
-```
+```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
         if len(postorder)==1 or not postorder:
@@ -243,7 +243,7 @@ class Solution:
 
 输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。
 
-```
+```tex
 示例:
 给定如下二叉树，以及目标和 sum = 22，
 
@@ -267,7 +267,7 @@ class Solution:
 深度优先遍历
 
 ### 代码
-```
+```python
 class Solution:
     def pathSum(self, root: TreeNode, sums: int) -> List[List[int]]:
         res_x=[]

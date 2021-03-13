@@ -9,7 +9,7 @@ categories:
 
 # 装饰器使用
 
-**摘抄自《流畅的Python》**
+**参考《流畅的Python》**
 
 ## 标准形式
 

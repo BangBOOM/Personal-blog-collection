@@ -4,8 +4,8 @@
 
 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
 
- 
-```
+
+```tex
 示例 1：
 
 输入: 2
@@ -26,7 +26,7 @@
 
 ### 代码
 
-```
+```python
 class Solution(object):
     def cuttingRope(self, n):
         """
@@ -51,7 +51,7 @@ class Solution(object):
 ## 面试题15. 二进制中1的个数
 
 请实现一个函数，输入一个整数，输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。
-```
+```tex
 示例 1：
 
 输入：00000000000000000000000000001011
@@ -70,7 +70,7 @@ class Solution(object):
 
 ### 代码
 
-```
+```python
 class Solution(object):
     def hammingWeight(self, n):
         """
@@ -89,7 +89,7 @@ class Solution(object):
 
 ## 面试题16. 数值的整数次方
 实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数问题。
-```
+```tex
 示例 1:
 
 输入: 2.00000, 10
@@ -107,7 +107,7 @@ class Solution(object):
 快速幂方法具体见 [文章](https://oi-wiki.org/math/quick-pow/)
 
 ### 代码
-```
+```python
 class Solution(object):
     def myPow(self, x, n):
         """

@@ -4,7 +4,7 @@
 
 B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 
-```
+```tex
 例如:
 给定的树 A:
 
@@ -37,7 +37,7 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 
 
 ### 代码
-```
+```python
 
 # Definition for a binary tree node.
 # class TreeNode(object):

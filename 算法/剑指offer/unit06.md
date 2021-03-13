@@ -2,7 +2,7 @@
 
 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
 
-```
+```tex
 示例1：
 
 输入：1->2->4, 1->3->4
@@ -17,13 +17,14 @@
 [参考](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/solution/he-bing-liang-ge-pai-xu-de-lian-biao-die-dai-di-gu/)
 
 + 迭代
-     
+  
+
  两个指针分别指向两个链表的表头，比较大小小的那个节点接到新的链表结尾并向后移动
 
 + 递归
 
     
-```
+```tex
 
                                             [1,2,2,3,4]
 l1=[1,2,3]
@@ -52,7 +53,7 @@ l1==None -->return l2                       [4]
 ## 代码
 
 + 迭代
-```
+```python
 
 # Definition for singly-linked list.
 # class ListNode(object):
@@ -91,7 +92,7 @@ class Solution(object):
 
 + 递归
 
-```
+```python
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -124,7 +125,7 @@ class Solution(object):
 
 请完成一个函数，输入一个二叉树，该函数输出它的镜像。
 
-```
+```tex
 例如输入：
 
      4
@@ -149,7 +150,7 @@ class Solution(object):
 
 ## 代码
 
-```
+```python
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):

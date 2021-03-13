@@ -2,7 +2,7 @@
 
 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )
 
-```
+```tex
 示例 1：
 输入：
 ["CQueue","appendTail","deleteHead","deleteHead"]
@@ -28,14 +28,14 @@
 + 当添加元素即`add(value)`时`stack a`中添加元素，栈b不操作
 + 当弹出元素即`pop()`时若`stack b`不为空则直接弹出其末尾元素，若为空则将`stack a`弹出并存入其中，这样就得到了`stack a`的倒序存放接着再弹出其末尾的元素
 
-```
+```tex
 init:          add(3)    add(4)     pop( )       add(5)    pop()   pop()
 stack a []     [3]       [3,4]      []           [5]       [5]     []
 stack b []     []        []         [4,3]->[4]   [4]       []      [5]->[]
 ```
 
 ### 代码
-```
+```python
 
 class CQueue(object):
 
@@ -66,7 +66,7 @@ class CQueue(object):
 ## 面试题10.1 斐波那契数列
 
 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项。斐波那契数列的定义如下：
-```
+```tex
 F(0) = 0,   F(1) = 1
 F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。
@@ -79,7 +79,7 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 `a,b=b,a+b`
 
 ### 代码
-```
+```python
 class Solution(object):
     def fib(self, n):
         """

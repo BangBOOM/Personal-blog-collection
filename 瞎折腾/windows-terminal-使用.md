@@ -63,31 +63,34 @@ categories:
        ![](https://figure-bed-y.oss-cn-beijing.aliyuncs.com/img/20200520195951.png)
    
 2. 接着用**管理员身份**打开PowerShell,运行下面的命令安装Posh-Git和Oh-My-Posh
-     ```
+     ```json
      Install-Module posh-git -Scope CurrentUser
      Install-Module oh-my-posh -Scope CurrentUser
      ```
    如果安装失败则先输入这句选择Y,允许加载任意脚本，再输入上面的命令
-     ```
+     ```json
      Set-ExecutionPolicy Bypass
      ```
-    
+   
  3. 设置PowerShell的配置文件,在`C:\Users\{username}\Documents\WindowsPowerShell\`下新建文件名称为`Microsoft.PowerShell_profile.ps1`,在其中添加上如下文件，如果想给PowerShell添加上vim功能也可以在安装好vim后加上后面的内容。
-     ```
+     ```json
      Import-Module posh-git
      Import-Module oh-my-posh
      Set-Theme Paradox
-
-
-     Set-Alias vim "C:\Program Files\Vim\vim82\vim.exe"
-     function Edit-Profile {
-         vim $profile
-     }
-     function Edit-Vimrc {
-         vim $HOME\_vimrc
-     }
      ```
-     其中的Set-Theme后面的主题可以选择其他内容，样式可以到[oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)的github仓库查找，只需要输入对应的主题名字即可修改。简易先直接在终端输入`Set-Theme Paradox`预览效果再写入配置文件中。
+
+
+~~~tex
+ Set-Alias vim "C:\Program Files\Vim\vim82\vim.exe"
+ function Edit-Profile {
+     vim $profile
+ }
+ function Edit-Vimrc {
+     vim $HOME\_vimrc
+ }
+ ```
+ 其中的Set-Theme后面的主题可以选择其他内容，样式可以到[oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh)的github仓库查找，只需要输入对应的主题名字即可修改。简易先直接在终端输入`Set-Theme Paradox`预览效果再写入配置文件中。
+~~~
 
 4. 到这里PowerShell部分的内容就配置完成了，看看效果先。
    ![](https://figure-bed-y.oss-cn-beijing.aliyuncs.com/img/20200520202246.png)
@@ -97,20 +100,20 @@ categories:
 这两者都是一样的操作
 
 + 安装zsh
-  ```
+  ```bash
   sudo apt install zsh
   or
   yum install zsh
   ```
 + 安装on My Zsh
-  ```
+  ```bash
   curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
   sh install.sh
   ```
 + 配置主题
   
   不同的主题可以到[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)的GitHub仓库查找，编辑`~/.zshrc`文件修改如下变量的值
-  ```
+  ```tex
   ZSH_THEME="robbyryssell"
   ```
   然后输入`source ~/.zshrc`
@@ -120,7 +123,7 @@ categories:
 #### Windows Terminal部分配置对不同的终端都是相同的
 
 首先配置list部分的内容
-```
+```json
 "list": [
             {
                 // Make changes here to the powershell.exe profile.
@@ -146,7 +149,7 @@ categories:
   ![](https://figure-bed-y.oss-cn-beijing.aliyuncs.com/img/20200520203158.png)
 
     具体的体现在配置文件就是添加到这里,所谓的主题就是对原本的颜色做了一个映射换成比较好看的颜色，没基础完全自定义还是挺费力的
-    ```
+    ```json
         "schemes": [
         {
             "name": "Frost",
@@ -221,7 +224,7 @@ categories:
 
 ## 我的配置文档
 
-```
+```json
     "theme": "system",
     "profiles": {
 
